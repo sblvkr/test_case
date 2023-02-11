@@ -1,8 +1,15 @@
+import os
 from pathlib import Path
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-rou^8f0e^nz*5pxry9olefjw&8xg7&(661^9@9a)=+x@dfavh!'
+SECRET_KEY = os.getenv('DJANGO_KEY')
+STRIPE_SK_KEY = os.getenv('STRIPE_SK_KEY')
+STRIPE_PK_KEY = os.getenv('STRIPE_PK_KEY')
 
 DEBUG = True
 
@@ -36,8 +43,7 @@ ROOT_URLCONF = 'stripe_api.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

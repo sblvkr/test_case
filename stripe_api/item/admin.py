@@ -8,7 +8,7 @@ class ItemAdmin(admin.ModelAdmin):
     list_display = (
         'pk',
         'name',
-        'description'
+        'description',
         'price',
     )
     search_fields = ('name',)
